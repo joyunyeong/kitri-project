@@ -1,0 +1,16 @@
+1. 이미지 달력에 drag&drop 시키기 > 달력 날짜 칸칸에 놓을 수 있어야함
+	> https://sergeswin.com/1032
+	
+>> modal > how to의 modal boxes 응용하기
+
+2. 달력자체 늘릴려면 > CalendarCon 
+ > 칸칸이는 cTable cmvMonthTable cmvMonthTableMain
+ 
+ 3. <script type="text/javascript" src="js/jquery-ui-custom-1.11.2.min.js"> 부분 : customizing!
+ 
+ ★ event 걸려져있는거 삭제할 부분 > 
+ .cdmvEventCont
+ .calendarCont, .calendarCont *
+ 
+ 
+ cal_Day에다 이모니콘 붙여야함!!!!!!!!!!!!!딴데 노노노노노ㅗ노노!!! > 완료

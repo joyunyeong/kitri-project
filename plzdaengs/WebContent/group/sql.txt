@@ -1,0 +1,25 @@
+//db 새로 import 후 사용할 쿼리
+SELECT g.*, c.*, m.*
+FROM plz_group g inner join plz_group_type c 
+on g.group_category_id = c.group_category_id 
+inner join plz_group_member m 
+on g.group_id = m.group_id
+//db 새로 import 전 사용할 쿼리
+SELECT g.*, t.*, m.*
+FROM plz_group g inner join plz_group_type t
+on g.group_category_id = t.group_category__id 
+inner join plz_group_member m 
+on g.group_id = m.group_id
+
+
+SELECT g.group_id, g.group_name, g.description, c.group_category__id, c.group_category__name
+, g.group_img, g.address_sido, g.address_sigungu
+FROM plz_group g inner join plz_group_type c 
+on g.group_category_id = c.group_category_id 
+inner join plz_group_member m 
+on g.group_id = m.group_id
+
+select count(user_id)
+from plz_group_memeber
+where group_id = 24 and member_status != all('A','X')
+

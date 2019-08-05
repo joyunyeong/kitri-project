@@ -1,0 +1,308 @@
+ckage com.plzdaeng.group.model.dao;
+
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.plzdaeng.group.model.GroupCategory;
+import com.plzdaeng.group.model.GroupDto;
+import com.plzdaeng.util.DBClose;
+import com.plzdaeng.util.DBConnection;
+
+public class GroupDaoImpl implements GroupDao {
+
+	private static GroupDaoImpl groupDaoImpl;
+
+	static {
+		groupDaoImpl = new GroupDaoImpl();
+	}
+
+	private GroupDaoImpl() {
+	}
+
+	public static GroupDaoImpl getGroupDaoImpl() {
+		return groupDaoImpl;
+	}
+
+	@Override
+	public int createGroup(GroupDto dto) {
+		System.out.println("Dao메소드입장");
+		int result = -1;
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+
+		StringBuffer creatGroupSql = new StringBuffer();
+
+		creatGroupSql.append("insert into PLZ_GROUP(\r\n");
+		creatGroupSql.append("GROUP_ID\r\n");
+		creatGroupSql.append(",GROUP_CATEGORY_ID\r\n");
+		creatGroupSql.append(",GROUP_CATEGORY_INPUT\r\n");
+		creatGroupSql.append(",GROUP_NAME\r\n");
+		creatGroupSql.append(",DESCRIPTION\r\n");
+		creatGroupSql.append(",GROUP_IMG\r\n");
+		creatGroupSql.append(",ADDRESS_SIDO\r\n");
+		creatGroupSql.append(",ADDRESS_SIGUNGU)\r\n");
+		creatGroupSql.append("values(\r\n");
+		creatGroupSql.append("group_id_seq.NEXTVAL\r\n");
+		creatGroupSql.append(", ?\r\n");
+		creatGroupSql.append(", null\r\n");
+		creatGroupSql.append(", ?\r\n");
+		creatGroupSql.append(", ?\r\n");
+		creatGroupSql.append(", null\r\n");
+		creatGroupSql.append(", ?\r\n");
+		creatGroupSql.append(", ?)\r\n");
+
+		try {
+			System.out.println("sql문실행전");
+			conn = DBConnection.makeConnectplzdb();
+			conn.setAutoCommit(false);
+			pstmt = conn.prepareStatement(creatGroupSql.toString());
+			pstmt.setString(1, dto.getGroupCategory().getGroup_category_id());
+			pstmt.setString(2, dto.getGroup_name());
+			pstmt.setString(3, dto.getGroup_description());
+//			pstmt.setString(4, dto.getGroup_img());
+			pstmt.setString(4, dto.getAddress_sido());
+			pstmt.setString(5, dto.getAddress_sigungu());
+			int r = pstmt.executeUpdate();
+			System.out.println("sql문실행후");
+
+			System.out.println(r);
+			DBClose.close(null, pstmt);
+			
+			applyGroupCategory(conn, dto);
+
+			conn.commit();
+			result = 1;
+		} catch (SQLException e) {
+			try {
+				System.out.println("rollback 실행");
+				conn.rollback();
+			} catch (SQLException e1) {
+				System.out.println("rollback fail..관리자에게 문의하세요.");
+				e1.printStackTrace();
+				result = -2;
+				return result;
+			}
+			e.printStackTrace();
+		} finally {
+			DBClose.close(conn, null);
+		}
+
+		return result;
+	}
+
+	@Override
+	public void applyGroupCategory(Connection conn, GroupDto dto) throws SQLException {
+		PreparedStatement pstmt = null;
+		StringBuffer applyCategorySql = new StringBuffer("");
+		applyCategorySql.append("insert into PLZ_GROUP_MEMBER values(group_id_seq.CURRVAL, ?, 'L')");
+		try {
+			pstmt = conn.prepareStatement(applyCategorySql.toString());
+			pstmt.setString(1, dto.getGroup_leader());
+			int r = pstmt.executeUpdate();
+			System.out.println(r);
+		} finally {
+			DBClose.close(null, pstmt);
+		}
+	}
+
+	@Override
+	public int changeGroup(GroupDto dto) {
+		int result = -1;
+
+		return result;
+	}
+
+	@Override
+	public int deleteGroup(GroupDto dto) {
+		int result = -1;
+
+		return result;
+	}
+
+	@Override
+	public List<GroupDto> myGroup(int id) {
+		
+		List<GroupDto> list = new ArrayList<>();
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		StringBuffer inGourpSQL = new StringBuffer("");
+		inGourpSQL.append("SELECT \n");
+				inGourpSQL.append("	g.group_name\n");
+				inGourpSQL.append("	, g.description\n");
+				inGourpSQL.append("	, c.group_category__id\n");
+				inGourpSQL.append("	, c.group_category__name\n");
+				inGourpSQL.append("	, g.group_img\n");
+				inGourpSQL.append("	, g.address_sido\n");
+				inGourpSQL.append("	, g.address_sigungu\n");
+				inGourpSQL.append("FROM  \n");
+				inGourpSQL.append("	plz_group g \n");
+				inGourpSQL.append("	inner join plz_group_type c \n");
+				inGourpSQL.append("		on g.group_category_id = c.group_category__id \n");
+				inGourpSQL.append("	inner join plz_group_member m \n");
+				inGourpSQL.append("		on g.group_id = m.group_id\n");
+				inGourpSQL.append("WHERE \n");
+				inGourpSQL.append("	user_id = ? \n");
+				
+				
+		try {
+			conn = DBConnection.makeConnectplzdb();
+			pstmt = conn.prepareStatement(inGourpSQL.toString());
+			pstmt.setInt(1, id);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				GroupCategory cate = new GroupCategory();
+				cate.setGroup_category_id(rs.getString("group_category__id"));
+				cate.setGroup_category_name(rs.getString("group_category__name"));
+				GroupDto dto = new GroupDto();
+				dto.setGroupCategory(cate);
+				dto.setGroup_name(rs.getString("group_name"));
+				dto.setGroup_description(rs.getString("description"));
+//				dto.setGroup_leader(group_leader);
+				dto.setGroup_img(rs.getString("group_img"));
+				dto.setAddress_sido(rs.getString("address_sido"));
+				dto.setAddress_sigungu(rs.getString("address_sigungu"));
+				
+				list.add(dto);
+			}
+			
+		
+		} catch (SQLException e) {
+			System.out.println("myGroup() error");
+			e.printStackTrace();
+		}
+		
+		
+		return list;
+	}
+
+	@Override
+	public List<GroupDto> recommendGroup() {
+		
+		List<GroupDto> list = new ArrayList<>();
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		StringBuffer inGourpSQL = new StringBuffer("");
+		inGourpSQL.append("SELECT \n");
+				inGourpSQL.append("	g.group_name\n");
+				inGourpSQL.append("	, g.description\n");
+				inGourpSQL.append("	, c.group_category__id\n");
+				inGourpSQL.append("	, c.group_category__name\n");
+				inGourpSQL.append("	, g.group_img\n");
+				inGourpSQL.append("	, g.address_sido\n");
+				inGourpSQL.append("	, g.address_sigungu\n");
+				inGourpSQL.append("FROM  \n");
+				inGourpSQL.append("	plz_group g \n");
+				inGourpSQL.append("	inner join plz_group_type c \n");
+				inGourpSQL.append("		on g.group_category_id = c.group_category__id \n");
+				inGourpSQL.append("	inner join plz_group_member m \n");
+				inGourpSQL.append("		on g.group_id = m.group_id\n");
+
+				
+				
+		try {
+			conn = DBConnection.makeConnectplzdb();
+			pstmt = conn.prepareStatement(inGourpSQL.toString());
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				GroupCategory cate = new GroupCategory();
+				cate.setGroup_category_id(rs.getString("group_category__id"));
+				cate.setGroup_category_name(rs.getString("group_category__name"));
+				GroupDto dto = new GroupDto();
+				dto.setGroupCategory(cate);
+				dto.setGroup_name(rs.getString("group_name"));
+				dto.setGroup_description(rs.getString("description"));
+//				dto.setGroup_leader(group_leader);
+				dto.setGroup_img(rs.getString("group_img"));
+				dto.setAddress_sido(rs.getString("address_sido"));
+				dto.setAddress_sigungu(rs.getString("address_sigungu"));
+				
+				list.add(dto);
+			}
+			
+		
+		} catch (SQLException e) {
+			System.out.println("recommendGroup() error");
+			e.printStackTrace();
+		}
+		
+
+		return list;
+	}
+
+	@Override
+	public List<GroupDto> searchGroup(String key, String word) {
+		
+		List<GroupDto> list = new ArrayList<>();
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		StringBuffer inGourpSQL = new StringBuffer("");
+		
+				
+				
+		try {
+			conn = DBConnection.makeConnectplzdb();
+			
+			
+			inGourpSQL.append("SELECT \n");
+			inGourpSQL.append("	g.group_name\n");
+			inGourpSQL.append("	, g.description\n");
+			inGourpSQL.append("	, c.group_category__id\n");
+			inGourpSQL.append("	, c.group_category__name\n");
+			inGourpSQL.append("	, g.group_img\n");
+			inGourpSQL.append("	, g.address_sido\n");
+			inGourpSQL.append("	, g.address_sigungu\n");
+			inGourpSQL.append("FROM  \n");
+			inGourpSQL.append("	plz_group g \n");
+			inGourpSQL.append("	inner join plz_group_type c\n");
+			inGourpSQL.append("		on g.group_category_id = c.group_category__id\n");
+			inGourpSQL.append("	inner join plz_group_member m\n");
+			inGourpSQL.append("		on g.group_id = m.group_id\n");
+			if(key.equals("1")) {
+				inGourpSQL.append("WHERE g.group_name like '%" + word +"'\n");
+				pstmt = conn.prepareStatement(inGourpSQL.toString());
+//				pstmt.setString(1, word);
+			}else if(key.equals("2")) {
+				inGourpSQL.append("WHERE g.address_sido like '%" + word +"' || g.address_sigungu like '%" + word +"'\n");
+				pstmt = conn.prepareStatement(inGourpSQL.toString());
+//				pstmt.setString(1, word);
+//				pstmt.setString(2, word);
+			}else if(key.equals("3")) {
+				inGourpSQL.append("WHERE c.group_category__name like '%" + word +"'\n");
+				pstmt = conn.prepareStatement(inGourpSQL.toString());
+//				pstmt.setString(1, word);
+			}
+			pstmt = conn.prepareStatement(inGourpSQL.toString());
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				GroupCategory cate = new GroupCategory();
+				cate.setGroup_category_id(rs.getString("group_category__id"));
+				cate.setGroup_category_name(rs.getString("group_category__name"));
+				GroupDto dto = new GroupDto();
+				dto.setGroupCategory(cate);
+				dto.setGroup_name(rs.getString("group_name"));
+				dto.setGroup_description(rs.getString("description"));
+//				dto.setGroup_leader(group_leader);
+				dto.setGroup_img(rs.getString("group_img"));
+				dto.setAddress_sido(rs.getString("address_sido"));
+				dto.setAddress_sigungu(rs.getString("address_sigungu"));
+				
+				list.add(dto);
+			}
+			
+		
+		} catch (SQLException e) {
+			System.out.println("searchGroup() error");
+			e.printStackTrace();
+		}
+		
+
+		return list;
+	}
+
+	
+
+}

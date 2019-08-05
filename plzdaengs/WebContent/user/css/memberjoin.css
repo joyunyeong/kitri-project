@@ -1,0 +1,49 @@
+@charset "UTF-8";
+.register .input-group-prepend>button {
+	width: inherit;
+}
+
+.register .form-control-label {
+	font-size: 1.0rem;
+	margin-top: auto;
+	margin-bottom: auto;
+}
+
+.register .form-group input {
+	font-size: 1.0rem;
+}
+
+.register .file-hidden {
+	display: none;
+}
+
+.register label[for=ex_file] {
+	border: 1px solid #4680ff;
+	border-radius: 2rem;
+	height: calc(2.25rem + 2px);
+	line-height: calc(2.25rem + 2px);
+	text-align: center;
+	color: #4680ff;
+}
+
+.register label[for=ex_file]:hover {
+	background-color: #4680ff;
+	color: white;
+}
+
+.register .fileuploadimg {
+	margin-left: 20px;
+	max-width: 100px;
+	max-height: 100px;
+	padding: 0px;
+}
+
+.register .registerfileupload label, .register .registerfileupload input
+	{
+	margin-top: auto;
+	margin-bottom: auto;
+}
+
+.register h3 {
+	font-size: 1.5rem;
+}
