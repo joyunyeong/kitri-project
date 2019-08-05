@@ -21,28 +21,28 @@ public class FoodDao {
 	String pw = "project1";
 
 	////////////////////////////////
-	private static FoodDao instance = new FoodDao(); // ½Ì±ÛÅæ : ÀÚ±âÀÚ½Å °´Ã¼ »ý¼º
+	private static FoodDao instance = new FoodDao(); // ï¿½Ì±ï¿½ï¿½ï¿½ : ï¿½Ú±ï¿½ï¿½Ú½ï¿½ ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½
 
 	private FoodDao() {
 	}
 
-	public static FoodDao getInstance() {//¿ÜºÎ¿¡¼­ Å¬·¡½º¸í. getInstance()¸¦ È£ÃâÇÏ¸é ÀÌ Å¬·¡½ºÀÇ °´Ã¼°¡ ¹ÝÈ¯µÊ
+	public static FoodDao getInstance() {//ï¿½ÜºÎ¿ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½. getInstance()ï¿½ï¿½ È£ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½È¯ï¿½ï¿½
 		String driver = "oracle.jdbc.driver.OracleDriver";
 		try {
-			Class.forName(driver);//JDBC µå¶óÀÌ¹ö ·Îµù : ojdbc.jarÆÄÀÏ¿¡ ÀÖ´Â OracleDriver
+			Class.forName(driver); //JDBC ï¿½ï¿½ï¿½ï¿½Ì¹ï¿½ ï¿½Îµï¿½ : ojdbc.jarï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½Ö´ï¿½ OracleDriver
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
 		return instance;
 	}
 	
-	//ÇÑ°³ÀÇ food Á¤º¸
+	//ï¿½Ñ°ï¿½ï¿½ï¿½ food ï¿½ï¿½ï¿½ï¿½
 	public FoodDto selectFood(String food_name) {
-		FoodDto foodDto = new FoodDto(); // FoodDto¿¡ OrderHstrDto, StockDto »ý¼ºÇØ³õÀ½
+		FoodDto foodDto = new FoodDto(); // FoodDtoï¿½ï¿½ OrderHstrDto, StockDto ï¿½ï¿½ï¿½ï¿½ï¿½Ø³ï¿½ï¿½ï¿½
 		
-		conn = null;					//¿¬°á
-		PreparedStatement stmt = null;	//¸í·É
-		rs = null;						//°á°ú
+		conn = null;					//ï¿½ï¿½ï¿½ï¿½
+		PreparedStatement stmt = null;	//ï¿½ï¿½ï¿½
+		rs = null;						//ï¿½ï¿½ï¿½
 		
 		
 		try {
@@ -53,7 +53,7 @@ public class FoodDao {
 					+ "where food.food_name = ?";
 			
 			stmt = conn.prepareStatement(sql);
-			stmt.setString(1, food_name);//?ÀÇ ¼ýÀÚ¹ø¤Š
+			stmt.setString(1, food_name);//?ï¿½ï¿½ ï¿½ï¿½ï¿½Ú¹ï¿½ï¿½ï¿½
 			rs = stmt.executeQuery();
 			
 			if(rs.next()) {
@@ -70,7 +70,7 @@ public class FoodDao {
 			
 			
 		} catch (SQLException e) {
-			System.out.println("¿¬°á ½ÇÆÐ" + e.getStackTrace());
+			System.out.println("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½" + e.getStackTrace());
 		} finally {
 			try {
 				if(rs != null)
@@ -80,18 +80,18 @@ public class FoodDao {
 				if(conn != null)
 					conn.close();
 			} catch (SQLException e) {
-				System.out.println("ÇØÁ¦ ½ÇÆÐ" + e.getStackTrace());
+				System.out.println("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½" + e.getStackTrace());
 			}
 		}
 		return foodDto;
 	}
 	
-	//food_name ¸®½ºÆ® Ãâ·Â (Ä«Å×°í¸®º°)
+	//food_name ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ (Ä«ï¿½×°ï¿½ï¿½ï¿½)
 		public List<String> getFoodnamelist(String foodctg) {
 			List<String> list = new ArrayList<String>();
 			
-			conn = null;					//¿¬°á
-			PreparedStatement stmt = null;	//¸í·É
+			conn = null;					//ï¿½ï¿½ï¿½ï¿½
+			PreparedStatement stmt = null;	//ï¿½ï¿½ï¿½
 			rs = null;	
 			
 			try {
@@ -120,16 +120,16 @@ public class FoodDao {
 					if(conn != null)
 						conn.close();
 				} catch (SQLException e) {
-					System.out.println("ÇØÁ¦ ½ÇÆÐ" + e.getStackTrace());
+					System.out.println("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½" + e.getStackTrace());
 				}
 			}
 			return list ;
 		}
-//	//OrderÁ¤º¸ insertÇÏ±â
+//	//Orderï¿½ï¿½ï¿½ï¿½ insertï¿½Ï±ï¿½
 //		public void insertOrder(String food_name, String member_id,String pay_num,int order_amt) {
 //			
-//			conn = null;					//¿¬°á
-//			PreparedStatement stmt = null;	//¸í·É
+//			conn = null;					//ï¿½ï¿½ï¿½ï¿½
+//			PreparedStatement stmt = null;	//ï¿½ï¿½ï¿½
 //			rs = null;	
 //			
 //			try {
@@ -158,19 +158,19 @@ public class FoodDao {
 //					if(conn != null)
 //						conn.close();
 //				} catch (SQLException e) {
-//					System.out.println("ÇØÁ¦ ½ÇÆÐ" + e.getStackTrace());
+//					System.out.println("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½" + e.getStackTrace());
 //				}
 //			}
 //		}
 		
 	
 		
-		//Àç°í Ã£±â ÀÌ¸§À¸·Î
+		//ï¿½ï¿½ï¿½ Ã£ï¿½ï¿½ ï¿½Ì¸ï¿½ï¿½ï¿½ï¿½ï¿½
 		public StockDto getStock(String stockname) {
 			StockDto stockDto = new StockDto();
 			
-			conn = null;					//¿¬°á
-			PreparedStatement stmt = null;	//¸í·É
+			conn = null;					//ï¿½ï¿½ï¿½ï¿½
+			PreparedStatement stmt = null;	//ï¿½ï¿½ï¿½
 			rs = null;	
 			
 			try {
@@ -199,18 +199,18 @@ public class FoodDao {
 					if(conn != null)
 						conn.close();
 				} catch (SQLException e) {
-					System.out.println("ÇØÁ¦ ½ÇÆÐ" + e.getStackTrace());
+					System.out.println("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½" + e.getStackTrace());
 				}
 			}
 			return stockDto ;
 		}
 		
-		//Àç°í »©±â
+		//ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		public void updateStock(int restamt, String stockname) {
 			
 			
-			conn = null;					//¿¬°á
-			PreparedStatement stmt = null;	//¸í·É
+			conn = null;					//ï¿½ï¿½ï¿½ï¿½
+			PreparedStatement stmt = null;	//ï¿½ï¿½ï¿½
 			rs = null;	
 			
 			try {
@@ -237,7 +237,7 @@ public class FoodDao {
 					if(conn != null)
 						conn.close();
 				} catch (SQLException e) {
-					System.out.println("ÇØÁ¦ ½ÇÆÐ" + e.getStackTrace());
+					System.out.println("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½" + e.getStackTrace());
 				}
 			}
 			
