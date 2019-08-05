@@ -58,7 +58,7 @@ public class payMain extends JPanel {
 	public JButton cashB = new JButton("현금");
 	public JButton cardCashB = new JButton("복합결제");
 	public JButton couponB;
-	public JButton homeB = new JButton("");
+	public JButton homeB = new JButton("H O M E");
 
 	JPanel cardP = new JPanel();
 
@@ -167,7 +167,7 @@ public class payMain extends JPanel {
 		listPanel = new JPanel();
 		listPanel.setBorder(null);
 		listPanel.setBackground(SystemColor.text);
-		listPanel.setBounds(12, 57, 1470, 391);
+		listPanel.setBounds(12, 48, 1470, 400);
 		add(listPanel);
 		listPanel.setLayout(null);
 
@@ -189,16 +189,16 @@ public class payMain extends JPanel {
 		pane.setColumnHeaderView(panel_1);
 
 		minus = new JButton("-");
-		minus.setBounds(1113, 10, 47, 41);
+		minus.setBounds(1216, 12, 47, 41);
 		listPanel.add(minus);
 		minus.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		minus.setForeground(new Color(255, 255, 255));
 		minus.setBackground(new Color(0, 0, 0));
 		minus.setFont(new Font("굴림", Font.BOLD, 15));
+		homeB.setForeground(Color.WHITE);
 
-		homeB.setBackground(Color.WHITE);
-		homeB.setIcon(new ImageIcon((".\\src\\com\\kitri\\Manager\\image\\home.png")));
-		homeB.setBounds(1381, 43, 59, 59);
+		homeB.setBackground(Color.BLUE);
+		homeB.setBounds(1338, 14, 96, 39);
 		listPanel.add(homeB);
 		
 //		buttonMain = new JButton("\uBA54\uC778\uC73C\uB85C \uB3CC\uC544\uAC00\uAE30");
@@ -216,6 +216,18 @@ public class payMain extends JPanel {
 		id = new JLabel("");
 		id.setBounds(90, 36, 57, 15);
 		listPanel.add(id);
+		
+		JButton button = new JButton("+");
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		button.setForeground(Color.WHITE);
+		button.setFont(new Font("굴림", Font.BOLD, 15));
+		button.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
+		button.setBackground(Color.BLACK);
+		button.setBounds(1277, 12, 47, 41);
+		listPanel.add(button);
 
 		JPanel infoP = new JPanel();
 		infoP.setLayout(null);
@@ -302,6 +314,4 @@ public class payMain extends JPanel {
 		homeB.addActionListener(pmc);
 
 	}
-
-	
 }

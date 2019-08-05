@@ -15,11 +15,10 @@ public class payMainController implements ActionListener {
 		      pms = new payMainService(p);
 		   }
 
-		   
 		   @Override
 		   public void actionPerformed(ActionEvent e) {
 		      
-		      String str = e.getActionCommand(); // �� Object�� �ȸ�����?
+		      String str = e.getActionCommand(); // 왜 Object는 안먹힐까?
 		      Object ob = e.getSource();
 		      
 		      if (ob == p.cardB) {
@@ -31,7 +30,7 @@ public class payMainController implements ActionListener {
 		         p.cash.setVisible(true);
 		      } else if (ob == p.cardCashB) {
 		    	  pms.goComplex();
-		    	  p.card.confirm.setText("���հ���");
+		    	  p.card.confirm.setText("복합결제");
 		          p.card.setLocation(500, 400);
 		          p.card.setVisible(true);
 		      } else if (ob == p.homeB) {

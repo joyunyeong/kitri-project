@@ -50,7 +50,7 @@ public class MemberDao {
 			String id = "project1";
 			String pw = "project1";
 			con = DriverManager.getConnection(url, id, pw);
-			System.out.println("Á¢¼Ó ¼º°ø");
+			System.out.println("memberDB : ì ‘ì† ì„±ê³µ");
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -76,7 +76,7 @@ public class MemberDao {
 		String sql = "delete from member where member_id = '" + dto.getMember_ID() + "'";
 		try {
 			a = statem().executeUpdate(sql);
-			System.out.println(a > 0 ? "»èÁ¦µÇ¾ú½À´Ï´Ù." : "»èÁ¦½ÇÆĞ");
+			System.out.println(a > 0 ? "ì‚­ì œë˜ì—ˆìŠµë‹ˆë‹¤." : "ì‚­ì œì‹¤íŒ¨");
 
 		} catch (SQLException e) {
 
@@ -123,6 +123,7 @@ public class MemberDao {
 		return a;
 	}
 	public MemberDto selectMemberId(String str) throws SQLException {//
+		//System.out.println("ì´ê±°ë‹ˆ?");
 		String sql = "select * from member where member_id = '"+ str +"'";
 		MemberDto md = null;
 		
@@ -162,6 +163,8 @@ public class MemberDao {
 	}
 	
 	public MemberDto select(String str, String phone_num) throws SQLException {
+		System.out.println("> íšŒì›ì „ìš© ë¡œê·¸ì¸ DAO : " + str + "/" + phone_num);
+		
 		String sql = "select * from member where name = '"+ str +"' and phone_num2||phone_num3 = '"+ phone_num + "'";
 		MemberDto md = null;
 		

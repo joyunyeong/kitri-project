@@ -21,16 +21,16 @@ public class JoinMemberFrameController implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		Object ob = e.getSource();
 		String str = e.getActionCommand();
-		if (str.equals("È¸¿øµî·Ï")) {
+		if (str.equals("íšŒì›ë“±ë¡")) {
 			jmProcess();
-		} else if (str.equals("Ãë¼Ò")) {
+		} else if (str.equals("ì·¨ì†Œ")) {
 			jmfs.clear();
 			jmf.dispose();
 		} else if (ob == jmf.tfName) {
 			if (jmf.mf.mc.mfs.isNotNumber(jmf.tfName.getText()) && !jmf.mf.mc.mfs.isNumber(jmf.tfName.getText())) {
 				jmf.tfBirth.requestFocus();
 			} else {
-				JOptionPane.showMessageDialog(jmf, "ÀÌ¸§¿£ ÇÑ±ÛÀÌ³ª ¿µ¹®À¸·Î ½áÁÖ¼¼¿ä. ºóÄ­µµ ¾ÈµË´Ï´Ù.(´ÜÈ£)");
+				JOptionPane.showMessageDialog(jmf, "ì´ë¦„ì—” í•œê¸€ì´ë‚˜ ì˜ë¬¸ìœ¼ë¡œ ì¨ì£¼ì„¸ìš”. ë¹ˆì¹¸ë„ ì•ˆë©ë‹ˆë‹¤.(ë‹¨í˜¸)");
 				jmf.tfName.setText("");
 			}
 		} else if (ob == jmf.tfBirth) {
@@ -38,7 +38,7 @@ public class JoinMemberFrameController implements ActionListener {
 			if (jmf.mf.mc.mfs.isNumber(a) && a.length() < 7 && a.length() > 5) {
 				jmf.tfAddress.requestFocus();
 			} else {
-				JOptionPane.showMessageDialog(jmf, "»ı³â¿ùÀÏÀº 6ÀÚ¸® ¼ıÀÚ¸¸ ÀÔ·Â°¡´ÉÇÕ´Ï´Ù.");
+				JOptionPane.showMessageDialog(jmf, "ìƒë…„ì›”ì¼ì€ 6ìë¦¬ ìˆ«ìë§Œ ì…ë ¥ê°€ëŠ¥í•©ë‹ˆë‹¤.");
 				jmf.tfBirth.setText("");
 			}
 		} else if (ob == jmf.tfAddress) {
@@ -47,14 +47,14 @@ public class JoinMemberFrameController implements ActionListener {
 			if (jmf.mf.mc.mfs.isNumber(jmf.tfPhoneNum1.getText()) == true) {
 				jmf.tfPhoneNum2.requestFocus();
 			} else {
-				JOptionPane.showMessageDialog(jmf, "ÀüÈ­¹øÈ£´Â ¼ıÀÚ¸¸ ÀÔ·Â°¡´ÉÇÕ´Ï´Ù.");
+				JOptionPane.showMessageDialog(jmf, "ì „í™”ë²ˆí˜¸ëŠ” ìˆ«ìë§Œ ì…ë ¥ê°€ëŠ¥í•©ë‹ˆë‹¤.");
 				jmf.tfPhoneNum1.setText("");
 			}
 		} else if (ob == jmf.tfPhoneNum2) {
 			if (jmf.mf.mc.mfs.isNumber(jmf.tfPhoneNum2.getText()) == true) {
 				jmf.tfPhoneNum3.requestFocus();
 			} else {
-				JOptionPane.showMessageDialog(jmf, "ÀüÈ­¹øÈ£´Â ¼ıÀÚ¸¸ ÀÔ·Â°¡´ÉÇÕ´Ï´Ù.");
+				JOptionPane.showMessageDialog(jmf, "ì „í™”ë²ˆí˜¸ëŠ” ìˆ«ìë§Œ ì…ë ¥ê°€ëŠ¥í•©ë‹ˆë‹¤.");
 				jmf.tfPhoneNum2.setText("");
 
 			}
@@ -62,7 +62,7 @@ public class JoinMemberFrameController implements ActionListener {
 			if (jmf.mf.mc.mfs.isNumber(jmf.tfPhoneNum3.getText()) == true) {
 				jmProcess();
 			} else {
-				JOptionPane.showMessageDialog(jmf, "ÀüÈ­¹øÈ£´Â ¼ıÀÚ¸¸ ÀÔ·Â°¡´ÉÇÕ´Ï´Ù.");
+				JOptionPane.showMessageDialog(jmf, "ì „í™”ë²ˆí˜¸ëŠ” ìˆ«ìë§Œ ì…ë ¥ê°€ëŠ¥í•©ë‹ˆë‹¤.");
 				jmf.tfPhoneNum3.setText("");
 
 			}
@@ -86,31 +86,31 @@ public class JoinMemberFrameController implements ActionListener {
 						if (jmf.mf.mc.mfs.isNumber(p3) == true) {
 							int b = jmf.mf.dao.insertMember(jmf);
 							if (b > 0) {
-								JOptionPane.showMessageDialog(jmf, "È¸¿øµî·Ï ¼º°ø!!!");
+								JOptionPane.showMessageDialog(jmf, "íšŒì›ë“±ë¡ ì„±ê³µ!!!");
 								jmfs.clear();
 								jmf.setVisible(false);
 
 							} else {
-								JOptionPane.showMessageDialog(jmf, "È¸¿øµî·Ï ½ÇÆĞ...");
+								JOptionPane.showMessageDialog(jmf, "íšŒì›ë“±ë¡ ì‹¤íŒ¨...");
 							}
 						} else {
-							JOptionPane.showMessageDialog(jmf, "ÀüÈ­¹øÈ£´Â ¼ıÀÚ¸¸ ÀÔ·Â°¡´ÉÇÕ´Ï´Ù.");
+							JOptionPane.showMessageDialog(jmf, "ì „í™”ë²ˆí˜¸ëŠ” ìˆ«ìë§Œ ì…ë ¥ê°€ëŠ¥í•©ë‹ˆë‹¤.");
 							jmf.tfPhoneNum3.setText("");
 						}
 					} else {
-						JOptionPane.showMessageDialog(jmf, "ÀüÈ­¹øÈ£´Â ¼ıÀÚ¸¸ ÀÔ·Â°¡´ÉÇÕ´Ï´Ù.");
+						JOptionPane.showMessageDialog(jmf, "ì „í™”ë²ˆí˜¸ëŠ” ìˆ«ìë§Œ ì…ë ¥ê°€ëŠ¥í•©ë‹ˆë‹¤.");
 						jmf.tfPhoneNum2.setText("");
 					}
 				} else {
-					JOptionPane.showMessageDialog(jmf, "ÀüÈ­¹øÈ£´Â ¼ıÀÚ¸¸ ÀÔ·Â°¡´ÉÇÕ´Ï´Ù.");
+					JOptionPane.showMessageDialog(jmf, "ì „í™”ë²ˆí˜¸ëŠ” ìˆ«ìë§Œ ì…ë ¥ê°€ëŠ¥í•©ë‹ˆë‹¤.");
 					jmf.tfPhoneNum1.setText("");
 				}
 			} else {
-				JOptionPane.showMessageDialog(jmf, "»ı³â¿ùÀÏÀº 6ÀÚ¸® ¼ıÀÚ¸¸ ÀÔ·Â°¡´ÉÇÕ´Ï´Ù.");
+				JOptionPane.showMessageDialog(jmf, "ìƒë…„ì›”ì¼ì€ 6ìë¦¬ ìˆ«ìë§Œ ì…ë ¥ê°€ëŠ¥í•©ë‹ˆë‹¤.");
 				jmf.tfBirth.setText("");
 			}
 		} else {
-			JOptionPane.showMessageDialog(jmf, "ÀÌ¸§¿£ ÇÑ±ÛÀÌ³ª ¿µ¹®À¸·Î ½áÁÖ¼¼¿ä. ºóÄ­µµ ¾ÈµË´Ï´Ù(´ÜÈ£)");
+			JOptionPane.showMessageDialog(jmf, "ì´ë¦„ì—” í•œê¸€ì´ë‚˜ ì˜ë¬¸ìœ¼ë¡œ ì¨ì£¼ì„¸ìš”. ë¹ˆì¹¸ë„ ì•ˆë©ë‹ˆë‹¤(ë‹¨í˜¸)");
 			jmf.tfName.setText("");
 		}
 

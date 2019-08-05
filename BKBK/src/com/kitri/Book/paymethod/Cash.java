@@ -25,22 +25,22 @@ public class Cash extends JFrame implements ActionListener, KeyListener{
    double lastNumber;
       
    public Cash() {
-      super("í˜„ê¸ˆê²°ì œ");
+      super("Çö±Ý°áÁ¦");
       setBackground(Color.WHITE);
       setBounds(898, 85, 576, 240);
       getContentPane().setLayout(null);
       
       for (int i = 0; i <= 8; i++) { // 1~9
          buttons[i] = new JButton(String.valueOf(i));
-         buttons[i].setFont(new Font("êµ´ë¦¼", Font.BOLD, 14));
+         buttons[i].setFont(new Font("±¼¸²", Font.BOLD, 14));
          buttons[i].setBackground(SystemColor.inactiveCaptionBorder);
       }
       
-      buttons[9] = new JButton("ë°±");
-      buttons[10] = new JButton("ì²œ");
-      buttons[11] = new JButton("ë§Œ");
+      buttons[9] = new JButton("¹é");
+      buttons[10] = new JButton("Ãµ");
+      buttons[11] = new JButton("¸¸");
       buttons[12] = new JButton("C");
-      buttons[13] = new JButton("í™•  ì¸");
+      buttons[13] = new JButton("È®  ÀÎ");
       
       
       buttons[0].setBounds(24, 93, 47, 42);
@@ -62,11 +62,11 @@ public class Cash extends JFrame implements ActionListener, KeyListener{
          buttons[i].setBackground(SystemColor.inactiveCaptionBorder);
       }
       
-      buttons[9].setFont(new Font("êµ´ë¦¼", Font.BOLD, 12));
-      buttons[10].setFont(new Font("êµ´ë¦¼", Font.BOLD, 12));
-      buttons[11].setFont(new Font("êµ´ë¦¼", Font.BOLD, 12));
-      buttons[12].setFont(new Font("êµ´ë¦¼", Font.BOLD, 14));
-      buttons[13].setFont(new Font("êµ´ë¦¼", Font.BOLD, 14));
+      buttons[9].setFont(new Font("±¼¸²", Font.BOLD, 12));
+      buttons[10].setFont(new Font("±¼¸²", Font.BOLD, 12));
+      buttons[11].setFont(new Font("±¼¸²", Font.BOLD, 12));
+      buttons[12].setFont(new Font("±¼¸²", Font.BOLD, 14));
+      buttons[13].setFont(new Font("±¼¸²", Font.BOLD, 14));
       
       for (int i = 0; i < buttons.length; i++) {
          getContentPane().add(buttons[i]);
@@ -83,21 +83,21 @@ public class Cash extends JFrame implements ActionListener, KeyListener{
       JLabel requestL = new JLabel("[  \uD604\uAE08 \uACB0\uC81C  ]    \uBC1B\uC740 \uAE08\uC561\uC744 \uC785\uB825\uD558\uC2DC\uC624.");
       requestL.setBounds(12, 10, 508, 15);
       panel.add(requestL);
-      requestL.setFont(new Font("HYê·¸ëž˜í”½M", Font.BOLD, 15));
+      requestL.setFont(new Font("HY±×·¡ÇÈM", Font.BOLD, 15));
       
       JLabel wonL = new JLabel(" \uC6D0");
       wonL.setBounds(474, 35, 22, 23);
       panel.add(wonL);
       wonL.setHorizontalAlignment(SwingConstants.RIGHT);
-      wonL.setFont(new Font("HYê·¸ëž˜í”½M", Font.BOLD, 15));
+      wonL.setFont(new Font("HY±×·¡ÇÈM", Font.BOLD, 15));
       
       moneyL = new JLabel("");
       moneyL.setHorizontalAlignment(SwingConstants.RIGHT);
-      moneyL.setFont(new Font("HYê·¸ëž˜í”½M", Font.BOLD, 15));
+      moneyL.setFont(new Font("HY±×·¡ÇÈM", Font.BOLD, 15));
       moneyL.setBounds(268, 39, 205, 15);
       panel.add(moneyL);
       
-      // eventListener ì¶”ê°€
+      // eventListener Ãß°¡
       for (int i = 0; i < buttons.length; i++) {
          buttons[i].addActionListener(this);
          buttons[i].addKeyListener(this);
@@ -144,7 +144,7 @@ public class Cash extends JFrame implements ActionListener, KeyListener{
                 	 
                      clearAll();
                   case 13 :
-                	  JOptionPane.showMessageDialog(null, "[ìŠ¹ì¸ì™„ë£Œ] ê²°ì œë˜ì—ˆìŠµë‹ˆë‹¤.");
+                	  JOptionPane.showMessageDialog(null, "[½ÂÀÎ¿Ï·á] °áÁ¦µÇ¾ú½À´Ï´Ù.");
                 	  setVisible(false);
          }}}}}
                
@@ -161,8 +161,8 @@ public class Cash extends JFrame implements ActionListener, KeyListener{
    @Override
    public void keyPressed(KeyEvent e) {
       int keycode = e.getKeyChar();
-      // System.out.println(e.getKeyCode()+ " "+ keycode ); ìš”ê±¸ë¡œ íŠ¹ìˆ˜ê¸°í˜¸ ë…€ì„ë“¤ ì½”ë“œë¥¼ ì•Œì•„ëƒˆìŠµë‹ˆë‹¤...
-      // ^^;;ë¶€ë„
+      // System.out.println(e.getKeyCode()+ " "+ keycode ); ¿ä°É·Î Æ¯¼ö±âÈ£ ³à¼®µé ÄÚµå¸¦ ¾Ë¾Æ³Â½À´Ï´Ù...
+      // ^^;;ºÎ²ô
       switch (keycode) {
       case KeyEvent.VK_0:
          number(0);
@@ -194,7 +194,7 @@ public class Cash extends JFrame implements ActionListener, KeyListener{
       case KeyEvent.VK_9:
          number(9);
          break;
-      case 27: // ë‹¤ ì§€ìš°ê¸°
+      case 27: // ´Ù Áö¿ì±â
     	  
          clearAll(); 
          break;

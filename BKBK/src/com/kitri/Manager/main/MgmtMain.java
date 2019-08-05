@@ -12,19 +12,18 @@ import javax.swing.border.*;
 import com.kitri.Main.frame.MainFrame;
 import com.kitri.Manager.page.*;
 import com.kitri.Manager.popup.*;
-import com.kitri.Statistics.chart.StatisticsPanel;
 
 
 public class MgmtMain extends JPanel {
 	
-//-------------------------------------------------------------------------------------------------------------------------------------------¼±¾ðºÎ
+//-------------------------------------------------------------------------------------------------------------------------------------------ï¿½ï¿½ï¿½ï¿½ï¿½
 	
-	public JPanel cardP = new JPanel(); //°¢ °ü¸®ÆäÀÌÁö ºÎÂøÇÑ CardLayout ÆÐ³Î
+	public JPanel cardP = new JPanel(); //ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ CardLayout ï¿½Ð³ï¿½
 	
 	public JPanel panelR = new JPanel();
-	public JButton foodMgmtB = new JButton("»óÇ°°ü¸®");
-	public JButton bookMgmtB = new JButton("µµ¼­°ü¸®");
-	public JButton membrMgmtB = new JButton("È¸¿ø°ü¸®");
+	public JButton foodMgmtB = new JButton("ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½");
+	public JButton bookMgmtB = new JButton("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
+	public JButton membrMgmtB = new JButton("È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 	
 	public CardLayout cards = new CardLayout();
 	public FoodMgmtDesign fm = new FoodMgmtDesign();
@@ -50,18 +49,18 @@ public class MgmtMain extends JPanel {
 		this.mainFrame = mainFrame;
 		mmc = new MgmtController(this);
 		
-//-------------------------------------------------------------------------------------------------------------------------------------------¹èÄ¡ºÎ
+//-------------------------------------------------------------------------------------------------------------------------------------------ï¿½ï¿½Ä¡ï¿½ï¿½
 		
 		
-		//»óÇ°°ü¸®, µµ¼­°ü¸® ÆÐ³Î Ä«µå·¹ÀÌ¾Æ¿ô¿¡ ºÎÂø
+		//ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ð³ï¿½ Ä«ï¿½å·¹ï¿½Ì¾Æ¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		cardP.setBounds(12, 10, 1374, 815);
 		cardP.setLayout(cards);
-		cardP.add(fm, "»óÇ°°ü¸®P");
-		cardP.add(bm, "µµ¼­°ü¸®P");
-		cardP.add(mm, "È¸¿ø°ü¸®P");
-		cards.show(cardP, "»óÇ°°ü¸®P");
+		cardP.add(fm, "ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½P");
+		cardP.add(bm, "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½P");
+		cardP.add(mm, "È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½P");
+		cards.show(cardP, "ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½P");
 		
-		//°¢ °ü¸®ÆäÀÌÁö ÀÌµ¿¹öÆ° ºÎÂø
+		//ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ï¿½ï¿½Æ° ï¿½ï¿½ï¿½ï¿½
 		panelR.setBackground(SystemColor.window);
 		panelR.setBounds(1386, 10, 96, 177);
 		panelR.setLayout(new GridLayout(4, 0, 0, 0));
@@ -73,32 +72,32 @@ public class MgmtMain extends JPanel {
 		panelR.add(bookMgmtB);
 		panelR.add(membrMgmtB);
 		
-		//°¢ ÆÐ³Î ¸ÞÀÎ ÆÐ³Î¿¡ ºÎÂø
+		//ï¿½ï¿½ ï¿½Ð³ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ð³Î¿ï¿½ ï¿½ï¿½ï¿½ï¿½
 		setBounds(0, 36, 1494, 835);
 		setBackground(SystemColor.window);
 		setLayout(null);
 		add(cardP);
 		add(panelR);
 		
-//-------------------------------------------------------------------------------------------------------------------------------------------µî·ÏºÎ
+//-------------------------------------------------------------------------------------------------------------------------------------------ï¿½ï¿½Ïºï¿½
 
 		
-		//°¢ °ü¸® ÆäÀÌÁö ÀÌµ¿
+		//ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
 		foodMgmtB.addActionListener(mmc);
 		bookMgmtB.addActionListener(mmc);
 		membrMgmtB.addActionListener(mmc);
 		
-		//°ü¸®ÀÚ ·Î±×¾Æ¿ô
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Î±×¾Æ¿ï¿½
 		fm.homeB.addActionListener(mmc);
 		bm.homeB.addActionListener(mmc);
 		mm.homeB.addActionListener(mmc);
 		
-		//Åë°è
+		//ï¿½ï¿½ï¿½
 		fm.statsB.addActionListener(mmc);
 		bm.statsB.addActionListener(mmc);
 		mm.statsB.addActionListener(mmc);
 		
-		//°ü¸®ÀÚ¹øÈ£¼öÁ¤
+		//ï¿½ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£ï¿½ï¿½ï¿½ï¿½
 		fm.mgmtNumB.addActionListener(mmc);
 		bm.mgmtNumB.addActionListener(mmc);
 		mm.mgmtNumB.addActionListener(mmc);
@@ -106,32 +105,32 @@ public class MgmtMain extends JPanel {
 //-------------------------------------------------------------------------------------------------Food
 		
 		
-		//¸Þ´º Ä«Å×°í¸® card ÀüÈ¯
+		//ï¿½Þ´ï¿½ Ä«ï¿½×°ï¿½ card ï¿½ï¿½È¯
 		fm.ctgB1.addActionListener(mmc);
 		fm.ctgB2.addActionListener(mmc);
 		fm.ctgB3.addActionListener(mmc);
 		fm.ctgB4.addActionListener(mmc);
 		
 		
-		//¸Þ´º¹öÆ°
+		//ï¿½Þ´ï¿½ï¿½ï¿½Æ°
 		for(JButton m : fm.menuB)
 			m.addActionListener(mmc);
 		
 		
-		//¸Þ´º Ãß°¡, ¼öÁ¤, »èÁ¦
+		//ï¿½Þ´ï¿½ ï¿½ß°ï¿½, ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½
 		fcAdd.addB.addActionListener(mmc);
 		fcAdd.mdfB.addActionListener(mmc);
 		fcAdd.delB.addActionListener(mmc);
 		fcAdd.cancelB.addActionListener(mmc);
 		fcAdd.ctgC.addActionListener(mmc);
 		
-		//Àç°í °Ë»ö
+		//ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½
 		fm.selAllStock.addActionListener(mmc);
 		fm.stockName.addActionListener(mmc);
 		fm.findB.addActionListener(mmc);
 		
 		
-		//Àç°í Ãß°¡, ¼öÁ¤, »èÁ¦
+		//ï¿½ï¿½ï¿½ ï¿½ß°ï¿½, ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½
 		fm.clrB.addActionListener(mmc);
 		fm.addB.addActionListener(mmc);
 		fsAdd.addB.addActionListener(mmc);
@@ -147,7 +146,7 @@ public class MgmtMain extends JPanel {
 		bm.findTF.addActionListener(mmc);
 		
 		
-		//Ãß°¡, ¼öÁ¤, »èÁ¦ btn
+		//ï¿½ß°ï¿½, ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ btn
 		bm.replace.addActionListener(mmc);
 		bm.addB.addActionListener(mmc);
 		bm.mdfyB.addActionListener(mmc);
@@ -165,7 +164,7 @@ public class MgmtMain extends JPanel {
 		mm.findC.addActionListener(mmc);
 		mm.findTF.addActionListener(mmc);
 		
-		//Ãß°¡, ¼öÁ¤, »èÁ¦
+		//ï¿½ß°ï¿½, ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½
 		mm.addB.addActionListener(mmc);
 		mm.mdfyB.addActionListener(mmc);
 		mm.delB.addActionListener(mmc);
@@ -185,9 +184,9 @@ public class MgmtMain extends JPanel {
 		
 	}
 	
-	private void btnD(JButton b, Color c, int size) {	//¹öÆ° µðÀÚÀÎ method
+	private void btnD(JButton b, Color c, int size) {	//ï¿½ï¿½Æ° ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ method
 		b.setBorder(new SoftBevelBorder(BevelBorder.RAISED, null, null, null, null));
-		b.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, size));
+		b.setFont(new Font("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½", Font.BOLD, size));
 		if(c != null)
 			b.setBackground(c);
 	}

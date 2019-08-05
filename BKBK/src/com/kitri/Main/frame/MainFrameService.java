@@ -40,7 +40,7 @@ public class MainFrameService {
 
 	public ImageIcon imageConvert(String fileName) {
 //		ImageIcon icon = new ImageIcon("C:\\Users\\Administrator\\Pictures\\memberIcon\\" + fileName);
-		ImageIcon icon = new ImageIcon("C:\\Users\\ÀÌ¼¼Çö\\Pictures\\memberIcon" + fileName);
+		ImageIcon icon = new ImageIcon("C:\\Users\\ì´ì„¸í˜„\\Pictures\\memberIcon" + fileName);
 		ImageIcon editIcon = new ImageIcon(icon.getImage().getScaledInstance(85, 79, Image.SCALE_SMOOTH));
 		return editIcon;
 	}
@@ -59,8 +59,8 @@ public class MainFrameService {
 		mc.mf.getDateL().setText(mc.mf.date);
 	}
 
-	public void login(String str) throws SQLException {// ÀÚ¸®´­·¯¼­ ·Î±×ÀÎÇÒ¶§
-
+	public void login(String str) throws SQLException {// ìë¦¬ ëˆŒëŸ¬ì„œ ë¡œê·¸ì¸í• ë•Œ
+		System.out.println("ì—¬ê¸°ã…—ã„¹ ì™”ë‹ˆ");
 		MemberDto dto = mc.mf.dao.selectMemberId(str);
 		if (dto != null) {
 
@@ -69,17 +69,18 @@ public class MainFrameService {
 			mc.mf.labelLogInBirth.setText(dto.getBirth());
 			mc.mf.labelCouponNum1.setText(String.valueOf((dto.getCou_Birth())));
 			mc.mf.labelCouponNum2.setText(String.valueOf((dto.getCou_Sale())));
-			mc.mf.card.show(mc.mf.panelMember, "È¸¿ø·Î±×ÀÎ");
+			mc.mf.card.show(mc.mf.panelMember, "íšŒì›ë¡œê·¸ì¸");
 			mc.mf.tfMemberID.setText("");
 			mc.mf.tablePayment.setVisible(true);
 		} else {
-			JOptionPane.showMessageDialog(null, "È¸¿øÀÌ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù. È¸¿ø¾ÆÀÌµğ¸¦ È®ÀÎÇØÁÖ¼¼¿ä.");
+			
+			JOptionPane.showMessageDialog(null, "íšŒì›ì´ ì¡´ì¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤. íšŒì›ì•„ì´ë””ë¥¼ í™•ì¸í•´ì£¼ì„¸ìš”.");
 		}
 
 	}
 
-	public void login2(String name, String phoneNum) throws SQLException {// ÀÌ¸§ ÀüÈ­¹øÈ£ ÃÄ¼­ ·Î±×ÀÎÇÒ¶§
-
+	public void login2(String name, String phoneNum) throws SQLException {// ì´ë¦„ ì „í™”ë²ˆí˜¸ ì³ì„œ ë¡œê·¸ì¸í• ë•Œ
+		System.out.println("> íšŒì›ì „ìš© ë¡œê·¸ì¸ Service");
 		MemberDto dto = mc.mf.dao.select(name, phoneNum);
 		if (dto != null) {
 			MainFrame.ID = dto.getMember_ID();
@@ -87,11 +88,11 @@ public class MainFrameService {
 			mc.mf.labelLogInBirth.setText(dto.getBirth());
 			mc.mf.labelCouponNum1.setText(String.valueOf((dto.getCou_Birth())));
 			mc.mf.labelCouponNum2.setText(String.valueOf((dto.getCou_Sale())));
-			mc.mf.card.show(mc.mf.panelMember, "È¸¿ø·Î±×ÀÎ");
+			mc.mf.card.show(mc.mf.panelMember, "íšŒì›ë¡œê·¸ì¸");
 			mc.mf.tfMemberID.setText("");
 			mc.mf.tablePayment.setVisible(true);
 		} else {
-			JOptionPane.showMessageDialog(null, "È¸¿øÀÌ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù. È¸¿ø¾ÆÀÌµğ¸¦ È®ÀÎÇØÁÖ¼¼¿ä.");
+			JOptionPane.showMessageDialog(null, "íšŒì›ì´ ì¡´ì¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤. íšŒì› IDë¥¼ í™•ì¸í•´ì£¼ì„¸ìš”.");
 		}
 
 	}
@@ -105,11 +106,11 @@ public class MainFrameService {
 			mc.mf.labelLogInBirth.setText(dto.getBirth());
 			mc.mf.labelCouponNum1.setText(String.valueOf((dto.getCou_Birth())));
 			mc.mf.labelCouponNum2.setText(String.valueOf((dto.getCou_Sale())));
-			mc.mf.card.show(mc.mf.panelMember, "È¸¿ø·Î±×ÀÎ");
+			mc.mf.card.show(mc.mf.panelMember, "íšŒì›ë¡œê·¸ì¸");
 			mc.mf.tfMemberID.setText("");
 			mc.mf.tablePayment.setVisible(true);
 		} else {
-			JOptionPane.showMessageDialog(null, "È¸¿øÀÌ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù. È¸¿ø¾ÆÀÌµğ¸¦ È®ÀÎÇØÁÖ¼¼¿ä.");
+			JOptionPane.showMessageDialog(null, "íšŒì›ì´ ì¡´ì¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤. íšŒì› IDë¥¼ í™•ì¸í•´ì£¼ì„¸ìš”.");
 		}
 
 	}
@@ -160,7 +161,7 @@ public class MainFrameService {
 		return timerBuffer;
 	}
 
-	public FPanel findFp() {// ÀÚ¸® Ã£´Â ¿ëµµ
+	public FPanel findFp() {// ìë¦¬ ì°¾ëŠ” ìš©ë„
 		FPanel f = null;
 		int len = mc.mf.fp.length;
 		for (int i = 0; i < len; i++) {
@@ -178,7 +179,7 @@ public class MainFrameService {
 		if (size!=0) {
 			for (k = 0; k < size; k++) {
 				Basket bd = f.bookDtoBasket.get(k);
-				Object[] ob = { k + 1,"µµ¼­", bd.getBookDto().getBookName(),((bd.getBookDto()).getBookPrice()/10),
+				Object[] ob = { k + 1,"ë„ì„œ", bd.getBookDto().getBookName(),((bd.getBookDto()).getBookPrice()/10),
 						bd.getCount(), ((bd.getBookDto()).getBookPrice()/10) * (bd.getCount()), ""};
 				mc.mf.pm.model.addRow(ob);
 			}
@@ -189,7 +190,7 @@ public class MainFrameService {
 		if (size2!=0) {
 			for (k = 0; k < size2; k++) {
 				Basket fd = f.foodDtoBasket.get(k);
-				Object[] ob = { size+k+ 1,"À½½Ä", fd.getFoodDto().getFoodName(),fd.getFoodDto().getFoodPrice(),
+				Object[] ob = { size+k+ 1,"ìŒì‹", fd.getFoodDto().getFoodName(),fd.getFoodDto().getFoodPrice(),
 						fd.getCount(),
 						fd.getFoodDto().getFoodPrice() * fd.getCount(),"" };
 				mc.mf.pm.model.addRow(ob);
@@ -201,7 +202,7 @@ public class MainFrameService {
 		if (size3!=0) {
 			for (k = 0; k < size3; k++) {
 				Basket bvd = f.voucherDtoBasket.get(k);
-				Object[] ob = { size+size2+k + 1,"ÀÌ¿ë±Ç", bvd.getVoucherDto().getName(), (bvd.getVoucherDto()).getPrice(), bvd.getCount(),
+				Object[] ob = { size+size2+k + 1,"ì´ìš©ê¶Œ", bvd.getVoucherDto().getName(), (bvd.getVoucherDto()).getPrice(), bvd.getCount(),
 						(bvd.getVoucherDto()).getPrice() * (bvd.getCount()),"" };
 				mc.mf.pm.model.addRow(ob);
 			}
@@ -218,7 +219,7 @@ public class MainFrameService {
 		if (size!=0) {
 			for (k = 0; k < size; k++) {
 				Basket bd = f.bookDtoBasket.get(k);
-				Object[] ob = { k + 1, "Ã¥", bd.getBookDto().getBookName(),
+				Object[] ob = { k + 1, "ì±…", bd.getBookDto().getBookName(),
 						bd.getCount(),
 						((bd.getBookDto()).getBookPrice()/10) * (bd.getCount()) };
 				mc.mf.pay.addRow(ob);
@@ -230,7 +231,7 @@ public class MainFrameService {
 		if (size2!=0) {
 			for (k = 0; k < size2; k++) {
 				Basket fd = f.foodDtoBasket.get(k);
-				Object[] ob = { size +k+ 1, "À½½Ä", fd.getFoodDto().getFoodName(),
+				Object[] ob = { size +k+ 1, "ìŒì‹", fd.getFoodDto().getFoodName(),
 						fd.getCount(),
 						fd.getFoodDto().getFoodPrice() * fd.getCount() };
 				mc.mf.pay.addRow(ob);
@@ -242,7 +243,7 @@ public class MainFrameService {
 		if (size3!=0) {
 			for (k = 0; k < size3; k++) {
 				Basket bvd = f.voucherDtoBasket.get(k);
-				Object[] ob = { size+size2+k + 1, "ÀÌ¿ë±Ç", bvd.getVoucherDto().getName(), bvd.getCount(),
+				Object[] ob = { size+size2+k + 1, "ì´ìš©ê¶Œ", bvd.getVoucherDto().getName(), bvd.getCount(),
 						(bvd.getVoucherDto()).getPrice() * (bvd.getCount()) };
 				mc.mf.pay.addRow(ob);
 			}
@@ -270,7 +271,7 @@ public class MainFrameService {
 		int paymentTime = 0;
 		int len = f.voucherDtoBasket.size();
 		for (int i = 0; i < len; i++) {
-			if (f.voucherDtoBasket.get(i).getVoucherDto().getName().equals("½Ã°£Ãß°¡")) {
+			if (f.voucherDtoBasket.get(i).getVoucherDto().getName().equals("ì‹œê°„ì¶”ê°€")) {
 				f.voucherDtoBasket.remove(i);
 				break;
 			}
@@ -295,7 +296,7 @@ public class MainFrameService {
 		mc.mf.pay.setNumRows(0);
 		FPanel f = findFp();
 		if (MainFrame.ID.isEmpty()||f==null) {
-			JOptionPane.showMessageDialog(mc.mf, "·Î±×ÀÎ ¸ÕÀú ÇØÁÖ¼¼¿ä");
+			JOptionPane.showMessageDialog(mc.mf, "ë¡œê·¸ì¸ ë¨¼ì € í•´ì£¼ì„¸ìš”");
 		} else {
 			int len2 = f.voucherDtoBasket.size();
 			if (len2 == 0) {

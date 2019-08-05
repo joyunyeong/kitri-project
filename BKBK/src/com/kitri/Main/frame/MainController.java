@@ -18,10 +18,10 @@ public class MainController implements ActionListener, MouseListener {
 
 	public MainFrame mf;
 	public MainFrameService mfs;
-	VoucherDto vou1 = new VoucherDto("1½Ã°£ ÀÌ¿ë±Ç", 2500, 10);
-	VoucherDto vou2 = new VoucherDto("2½Ã°£ ÀÌ¿ë±Ç", 5000, 20);
-	VoucherDto vou3 = new VoucherDto("3½Ã°£ ÀÌ¿ë±Ç", 7500, 30);
-	VoucherDto overTime = new VoucherDto("½Ã°£Ãß°¡", 500, 5);
+	VoucherDto vou1 = new VoucherDto("1ì‹œê°„ ì´ìš©ê¶Œ", 2500, 10);
+	VoucherDto vou2 = new VoucherDto("2ì‹œê°„ ì´ìš©ê¶Œ", 5000, 20);
+	VoucherDto vou3 = new VoucherDto("3ì‹œê°„ ì´ìš©ê¶Œ", 7500, 30);
+	VoucherDto overTime = new VoucherDto("ì‹œê°„ì¶”ê°€", 500, 5);
 
 	public MainController(MainFrame managerFrame) {
 
@@ -34,23 +34,23 @@ public class MainController implements ActionListener, MouseListener {
 		Object ob = e.getSource();
 		String str = e.getActionCommand();
 		String combo = mf.comboBoxVoucher.getSelectedItem().toString();
-		if (ob == mf.tfPhoneNum || str.equals("È¸¿ø·Î±×ÀÎ")) {
+		if (ob == mf.tfPhoneNum || str.equals("íšŒì›ë¡œê·¸ì¸")) {
 			memberLoginProcess();
-		} else if (str.equals("ºñÈ¸¿ø")) {
+		} else if (str.equals("ë¹„íšŒì›")) {
 			guestLoginProcess();
-		} else if (str.equals("µµ¼­´ëÃâ")) {// ---------------------------------------------------------------------------------[h]µµ¼­´ëÃâbtn
+		} else if (str.equals("ë„ì„œëŒ€ì¶œ")) {// ---------------------------------------------------------------------------------[h]ë„ì„œëŒ€ì¶œbtn
 			bookRentProcess();
 //			mf.rentalMain.rc.rs.bookListAppend();
-		} else if (str.equals("È¸¿øµî·Ï")) {
+		} else if (str.equals("íšŒì›ë“±ë¡")) {
 			joinMemberProcess();
-		} else if (str.equals("È¸¿øÁ¤º¸¼öÁ¤")) {
+		} else if (str.equals("íšŒì›ì •ë³´ìˆ˜ì •")) {
 			nonmemBlock();
-		} else if (str.equals("À½½ÄÁÖ¹®")) {
-			foodOrderProcess();// ------------------------------------------------------------------------[h]À½½ÄÁÖ¹®btn
-								// >>> FoodPanel ¿©±â ·Î±×ÀÎ µÇ¾îÀÖÀ» ¶§¸¸ ³Ñ¾î°¡µµ·Ï Á¶°Ç¼³Á¤
-		} else if (str.equals("°ü¸®ÀÚ")) {
+		} else if (str.equals("ìŒì‹ì£¼ë¬¸")) {
+			foodOrderProcess();// ------------------------------------------------------------------------[h]ìŒì‹ì£¼ë¬¸btn
+								// >>> FoodPanel ì—¬ê¸° ë¡œê·¸ì¸ ë˜ì–´ìˆì„ ë•Œë§Œ ë„˜ì–´ê°€ë„ë¡ ì¡°ê±´ì„¤ì •
+		} else if (str.equals("ê´€ë¦¬ì")) {
 			managerProcess();
-		} else if (str.equals("°áÁ¦")) {
+		} else if (str.equals("ê²°ì œ")) {
 			paymentProcess();
 		} else if (str.equals("Logout")) {
 			mfs.logout();
@@ -66,11 +66,11 @@ public class MainController implements ActionListener, MouseListener {
 		} else if (ob == mf.tfManagerId) {
 			managerLogInProcess();
 		}
-		if (combo.equals("1½Ã°£ ÀÌ¿ë±Ç")) {
+		if (combo.equals("1ì‹œê°„ ì´ìš©ê¶Œ")) {
 			mfs.addVoucher(vou1);
-		} else if (combo.equals("2½Ã°£ ÀÌ¿ë±Ç")) {
+		} else if (combo.equals("2ì‹œê°„ ì´ìš©ê¶Œ")) {
 			mfs.addVoucher(vou2);
-		} else if (combo.equals("3½Ã°£ ÀÌ¿ë±Ç")) {
+		} else if (combo.equals("3ì‹œê°„ ì´ìš©ê¶Œ")) {
 			mfs.addVoucher(vou3);
 		}
 		mf.comboBoxVoucher.setSelectedIndex(0);
@@ -79,7 +79,7 @@ public class MainController implements ActionListener, MouseListener {
 
 	private void bookRentProcess() {
 		StringBuffer sb = new StringBuffer(MainFrame.ID);
-		int a = sb.indexOf("ºñÈ¸¿ø");
+		int a = sb.indexOf("ë¹„íšŒì›");
 		if (MainFrame.ID.isEmpty() || a >= 0) {
 			return;
 		} else {
@@ -97,7 +97,7 @@ public class MainController implements ActionListener, MouseListener {
 
 	private void nonmemBlock() {
 		StringBuffer sb = new StringBuffer(MainFrame.ID);
-		int a = sb.indexOf("ºñÈ¸¿ø");
+		int a = sb.indexOf("ë¹„íšŒì›");
 		if (MainFrame.ID.isEmpty() || a >= 0) {
 			return;
 		} else {
@@ -105,7 +105,7 @@ public class MainController implements ActionListener, MouseListener {
 		}
 	}
 
-	private void paymentProcess() {
+	private void paymentProcess() { 
 		mf.pm.id.setText(MainFrame.ID);
 		mf.serCard.show(mf.panelCard, "pay");
 		FPanel f = mfs.findFp();
@@ -115,7 +115,7 @@ public class MainController implements ActionListener, MouseListener {
 
 	}
 
-	public void tatalPrice() {
+	public void tatalPrice() { 
 		int total = 0;
 		int a = mf.pm.model.getRowCount();
 		if (a != 0) {
@@ -123,11 +123,13 @@ public class MainController implements ActionListener, MouseListener {
 				int amont = Integer.parseInt(String.valueOf(mf.pm.model.getValueAt(j, 5)));
 				total = total + amont;
 			}
+		} else { // [08.05 ìœ¤ì˜ ì¶”ê°€] ë©”ì¸ì—ì„œ ê²°ì œì•¡ 0ì¼ ê²½ìš°
+			JOptionPane.showMessageDialog(null, "ê²°ì œ ì˜ˆì •ì¸ ê¸ˆì•¡ì´ ì—†ìŠµë‹ˆë‹¤.");
 		}
 		mf.pm.totalR.setText(String.valueOf(total));
 	}
 
-//		//´ë¿©¸ñ·ÏÀ» ¾î¶»°Ô ³Ñ±æ °ÇÁö ³»ÀÏ ÀÌ¾ß±âÇØº¸±â
+//		//ëŒ€ì—¬ëª©ë¡ì„ ì–´ë–»ê²Œ ë„˜ê¸¸ ê±´ì§€ ë‚´ì¼ ì´ì•¼ê¸°í•´ë³´ê¸°
 
 	private void managerLogInProcess() {
 		char[] c = mf.tfManagerId.getPassword();
@@ -140,12 +142,12 @@ public class MainController implements ActionListener, MouseListener {
 		try {
 			a = mf.dao.managerSelect(str);
 			if (a > 0) {
-				// °ü¸®ÀÚ ÆäÀÌÁö·Î ÀÔÀå
+				// ê´€ë¦¬ì í˜ì´ì§€ë¡œ ì…ì¥
 				mf.serCard.show(mf.panelCard, "Manager");
 				mf.tfManagerId.setText("");
 				mf.panelManager.setVisible(false);
 			} else {
-				JOptionPane.showMessageDialog(mf, "°ü¸®ÀÚ ¹øÈ£°¡ ´Ù¸¨´Ï´Ù. È®ÀÎÇØÁÖ¼¼¿ä.");
+				JOptionPane.showMessageDialog(mf, "ê´€ë¦¬ì ë²ˆí˜¸ê°€ ë‹¤ë¦…ë‹ˆë‹¤. í™•ì¸í•´ì£¼ì„¸ìš”.");
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -169,12 +171,12 @@ public class MainController implements ActionListener, MouseListener {
 			String str = String.valueOf(ob);
 			FPanel f = mfs.findFp();
 			switch (str) {
-			case "ÀÌ¿ë±Ç":
+			case "ì´ìš©ê¶Œ":
 				mfs.bMProcess(a, f, f.voucherDtoBasket);
 				break;
-			case "À½½Ä":
+			case "ìŒì‹":
 				return;
-			case "Ã¥":
+			case "ì±…":
 				mfs.bMProcess(a, f, f.bookDtoBasket);
 				break;
 			}
@@ -196,14 +198,14 @@ public class MainController implements ActionListener, MouseListener {
 		int size = mf.vt.size();
 		if (size == 0) {
 			try {
-				mfs.guestLogin("ºñÈ¸¿ø01");
+				mfs.guestLogin("ë¹„íšŒì›01");
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		} else {
 			for (int i = 1; i < 31; i++) {
-				String str = "ºñÈ¸¿ø" + (nf.format(i));
+				String str = "ë¹„íšŒì›" + (nf.format(i));
 				if (mf.vt.indexOf(str) == -1) {
 					try {
 						mfs.guestLogin(str);
@@ -212,7 +214,7 @@ public class MainController implements ActionListener, MouseListener {
 					}
 					break;
 				} else if (i == 31) {
-					JOptionPane.showMessageDialog(mf, "´õÀÌ»ó Å×ÀÌºíÀÌ ¾ø½À´Ï´Ù.");
+					JOptionPane.showMessageDialog(mf, "ë”ì´ìƒ í…Œì´ë¸”ì´ ì—†ìŠµë‹ˆë‹¤.");
 				}
 			}
 		}
@@ -228,7 +230,7 @@ public class MainController implements ActionListener, MouseListener {
 			mf.emf.labelBirth.setText(mf.labelLogInBirth.getText());
 			mf.emf.setVisible(true);
 		} else {
-			JOptionPane.showMessageDialog(mf, "·Î±×ÀÎÀ» ¸ÕÀúÇØÁÖ¼¼¿ä.");
+			JOptionPane.showMessageDialog(mf, "ë¡œê·¸ì¸ì„ ë¨¼ì €í•´ì£¼ì„¸ìš”.");
 		}
 	}
 
@@ -277,14 +279,14 @@ public class MainController implements ActionListener, MouseListener {
 					mfs.logout();
 
 				} else {
-					JOptionPane.showMessageDialog(mf, "ÀÌ¹Ì ÀÌ¿ëÁßÀÎ ¼Õ´ÔÀÔ´Ï´Ù.");
+					JOptionPane.showMessageDialog(mf, "ì´ë¯¸ ì´ìš©ì¤‘ì¸ ì†ë‹˜ì…ë‹ˆë‹¤.");
 					mfs.logout();
 				}
 			} else if (mf.labelLogInName.getText().isEmpty() && !f.labelName.getText().isEmpty()) {
 				String str = f.mid;
 				StringBuffer sb = new StringBuffer(str);
 				mfs.logout();
-				if (sb.indexOf("ºñÈ¸¿ø") == -1) {
+				if (sb.indexOf("ë¹„íšŒì›") == -1) {
 					try {
 						mfs.login(str);
 						mfs.printTable(f);

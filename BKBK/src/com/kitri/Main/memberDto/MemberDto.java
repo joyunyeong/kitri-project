@@ -1,16 +1,16 @@
 package com.kitri.Main.memberDto;
-/*È¸¿øID	Member_ID
-ÀÌ¸§	Name
-ÀüÈ­¹øÈ£1	Phone_num1
-ÀüÈ­¹øÈ£2	Phone_num2
-ÀüÈ­¹øÈ£3	Phone_num3
-ÁÖ¼Ò	Address
-»ı³â¿ùÀÏ	Birth
-°áÁ¦±İ¾×_´©Àû	Pay_sum
-»ıÀÏÄíÆù	Cou_birth
-Ãµ¿øÇÒÀÎÄíÆù	Cou_sale
+/*íšŒì›ID	Member_ID
+ì´ë¦„	Name
+ì „í™”ë²ˆí˜¸1	Phone_num1
+ì „í™”ë²ˆí˜¸2	Phone_num2
+ì „í™”ë²ˆí˜¸3	Phone_num3
+ì£¼ì†Œ	Address
+ìƒë…„ì›”ì¼	Birth
+ê²°ì œê¸ˆì•¡_ëˆ„ì 	Pay_sum
+ìƒì¼ì¿ í°	Cou_birth
+ì²œì›í• ì¸ì¿ í°	Cou_sale
 
- * ID Member_ID PK ÀÌ¸§+ÀüÈ­¹øÈ£ ¸¶Áö¸· 4ÀÚ¸® ÀÌ¸§ Name ÀüÈ­¹øÈ£ Phone_num ÁÖ¼Ò Address »ı³â¿ùÀÏ Birth °áÁ¦±İ¾×_´©Àû Pay_sum »ıÀÏÄíÆù Cou_birth Ãµ¿øÇÒÀÎÄíÆù Cou_sale 
+ * ID Member_ID PK ì´ë¦„+ì „í™”ë²ˆí˜¸ ë§ˆì§€ë§‰ 4ìë¦¬ ì´ë¦„ Name ì „í™”ë²ˆí˜¸ Phone_num ì£¼ì†Œ Address ìƒë…„ì›”ì¼ Birth ê²°ì œê¸ˆì•¡_ëˆ„ì  Pay_sum ìƒì¼ì¿ í° Cou_birth ì²œì›í• ì¸ì¿ í° Cou_sale 
  */
 public class MemberDto {
 	private String Member_ID = "";
@@ -20,9 +20,9 @@ public class MemberDto {
 	private String Phone_Num3="";
 	private String address="";
 	String Birth="";
-	int Pay_Sum=0;//´©Àû¿ä±İ
-	int Cou_Birth=0;//»ıÀÏÄíÆù
-	int Cou_Sale=0;// Ãµ¿øÇÒÀÎÄíÆù
+	int Pay_Sum=0;//ëˆ„ì ìš”ê¸ˆ
+	int Cou_Birth=0;//ìƒì¼ì¿ í°
+	int Cou_Sale=0;// ì²œì›í• ì¸ì¿ í°
 	
 
 	

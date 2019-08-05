@@ -48,19 +48,19 @@ public class JoinMemberFrame extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel labelName = new JLabel("ÀÌ¸§");
+		JLabel labelName = new JLabel("ì´ë¦„");
 		labelName.setBounds(78, 100, 57, 15);
 		contentPane.add(labelName);
 		
-		JLabel labelBirth = new JLabel("»ı³â¿ùÀÏ");
+		JLabel labelBirth = new JLabel("ìƒë…„ì›”ì¼");
 		labelBirth.setBounds(78, 156, 57, 15);
 		contentPane.add(labelBirth);
 		
-		JLabel labelAddress = new JLabel("ÁÖ¼Ò");
+		JLabel labelAddress = new JLabel("ì£¼ì†Œ");
 		labelAddress.setBounds(78, 213, 57, 15);
 		contentPane.add(labelAddress);
 		
-		JLabel labelPhoneNum = new JLabel("ÀüÈ­¹øÈ£");
+		JLabel labelPhoneNum = new JLabel("ì „í™”ë²ˆí˜¸");
 		labelPhoneNum.setBounds(78, 270, 57, 15);
 		contentPane.add(labelPhoneNum);
 		
@@ -94,13 +94,13 @@ public class JoinMemberFrame extends JFrame {
 		tfPhoneNum3.setBounds(361, 267, 57, 21);
 		contentPane.add(tfPhoneNum3);
 		
-		buttonJoinMember = new JButton("È¸¿øµî·Ï");
+		buttonJoinMember = new JButton("íšŒì›ë“±ë¡");
 		buttonJoinMember.setForeground(SystemColor.controlLtHighlight);
 		buttonJoinMember.setBackground(SystemColor.textHighlight);
 		buttonJoinMember.setBounds(78, 387, 116, 37);
 		contentPane.add(buttonJoinMember);
 		
-		JButton buttonCancel = new JButton("Ãë¼Ò");
+		JButton buttonCancel = new JButton("ì·¨ì†Œ");
 		buttonCancel.setForeground(SystemColor.controlLtHighlight);
 		buttonCancel.setBackground(SystemColor.activeCaptionBorder);
 		buttonCancel.setBounds(247, 387, 116, 37);

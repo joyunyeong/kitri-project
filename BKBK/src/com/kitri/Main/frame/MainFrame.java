@@ -40,7 +40,7 @@
 //	}
 //}
 
-//<html>Àß»ı±ä½ÂÈÆÀÌ ¸ÚÁ³¾î<br>±×·¸°Ô ¸ÚÁø³à¼®ÀÌ...<br></html>
+//<html>ì˜ìƒê¸´ìŠ¹í›ˆì´ ë©‹ì¡Œì–´<br>ê·¸ë ‡ê²Œ ë©‹ì§„ë…€ì„ì´...<br></html>
 package com.kitri.Main.frame;
 
 import javax.swing.border.*;
@@ -61,7 +61,6 @@ import com.kitri.Main.memberDto.MemberDao;
 import com.kitri.Main.memberDto.MemberDto;
 import com.kitri.Main.swing.box.FPanel;
 import com.kitri.Manager.main.MgmtMain;
-import com.kitri.Statistics.chart.StatisticsPanel;
 
 public class MainFrame extends JFrame implements Runnable {
 
@@ -93,7 +92,7 @@ public class MainFrame extends JFrame implements Runnable {
 	JTable tablePayment;
 	public JTable tableBookRental;
 	JComboBox comboBoxVoucher;
-	String[] title = { "ÀÌ¿ë±Ç ¼±ÅÃ", "1½Ã°£ ÀÌ¿ë±Ç", "2½Ã°£ ÀÌ¿ë±Ç", "3½Ã°£ ÀÌ¿ë±Ç" };
+	String[] title = { "ì´ìš©ê¶Œ ì„ íƒ", "1ì‹œê°„ ì´ìš©ê¶Œ", "2ì‹œê°„ ì´ìš©ê¶Œ", "3ì‹œê°„ ì´ìš©ê¶Œ" };
 	JButton buttonGuest;
 	JButton buttonLogIn;
 	JButton buttonMlogin;
@@ -118,7 +117,7 @@ public class MainFrame extends JFrame implements Runnable {
 	private JPanel panelBookJtable;
 	
 	
-//----------------------------------------------------------------------------------------------------------------------------------[h]°¢ ¼­ºñ½º ÆĞ³Î »ı¼º
+//----------------------------------------------------------------------------------------------------------------------------------[h]ê° ì„œë¹„ìŠ¤ íŒ¨ë„ ìƒì„±
 	public CardLayout serCard = new CardLayout();
 	public JPanel panelCard;
 	public FoodPanel foodPanel;
@@ -142,22 +141,22 @@ public class MainFrame extends JFrame implements Runnable {
 		pm = new payMain(this);
 		
 
-		// È­¸é Ã¹¹øÂ° ÁÙÀÇ ³¯Â¥ ¹× ½Ã°£ Ç¥½Ã_Label
-		titleL = new JLabel("//ºÏÅ©ºÏÅ©// 1È£Á¡"); // Á¡Æ÷ÀÌ¸§
+		// í™”ë©´ ì²«ë²ˆì§¸ ì¤„ì˜ ë‚ ì§œ ë° ì‹œê°„ í‘œì‹œ_Label
+		titleL = new JLabel("//ë¶í¬ë¶í¬// 1í˜¸ì "); // ì í¬ì´ë¦„
 		titleL.setHorizontalAlignment(SwingConstants.CENTER);
-		titleL.setFont(new Font("¸¼Àº °íµñ Semilight", Font.BOLD, 16));
+		titleL.setFont(new Font("ë§‘ì€ ê³ ë”• Semilight", Font.BOLD, 16));
 		titleL.setToolTipText("");
 		titleL.setBorder(new LineBorder(new Color(200, 200, 200)));
 
-		dateL = new JLabel(); // ³¯Â¥
+		dateL = new JLabel(); // ë‚ ì§œ
 		dateL.setBorder(new LineBorder(new Color(200, 200, 200)));
 		dateL.setHorizontalAlignment(SwingConstants.CENTER);
-		dateL.setFont(new Font("¸¼Àº °íµñ Semilight", Font.BOLD, 16));
+		dateL.setFont(new Font("ë§‘ì€ ê³ ë”• Semilight", Font.BOLD, 16));
 
-		timeL = new JLabel(); // ½Ã°£
+		timeL = new JLabel(); // ì‹œê°„
 		timeL.setBorder(new LineBorder(new Color(200, 200, 200)));
 		timeL.setHorizontalAlignment(SwingConstants.CENTER);
-		timeL.setFont(new Font("¸¼Àº °íµñ Semilight", Font.BOLD, 16));
+		timeL.setFont(new Font("ë§‘ì€ ê³ ë”• Semilight", Font.BOLD, 16));
 
 		panelDate.setLayout(new GridLayout(0, 3, 0, 0));
 		panelDate.add(titleL);
@@ -175,14 +174,13 @@ public class MainFrame extends JFrame implements Runnable {
 		contentPane.add(panelCard);
 		panelCard.setLayout(serCard);
 		
-//----------------------------------------------------------------------------------------------------------------------------------[h]°¢ ¼­ºñ½º ÀüÈ¯ ÆĞ³Î cardlayout
+//----------------------------------------------------------------------------------------------------------------------------------[h]ê° ì„œë¹„ìŠ¤ ì „í™˜ íŒ¨ë„ cardlayout
 		
 		//[h]Main Panel
 		panelCard.add(panel, "Main");
 		//[h]Food Panel
 		panelCard.add(foodPanel, "Food");
 		panelCard.add(managerMain, "Manager");
-		panelCard.add(managerMain.mmc.statisticsPanel, "Statistics");
 		panelCard.add(pm,"pay");
 		serCard.show(panelCard, "Main");
 		
@@ -191,7 +189,7 @@ public class MainFrame extends JFrame implements Runnable {
 		Toolkit kit = Toolkit.getDefaultToolkit();
 		Dimension screenSize = kit.getScreenSize();
 		setLocation(screenSize.width/2, screenSize.height/2);
-		setTitle("ºÏÅ©ºÏÅ©");
+		setTitle("ë¶í¬ë¶í¬");
 		Image img = kit.getImage(".\\src\\com\\kitri\\Manager\\image\\bkbk.jpg");
 		setIconImage(img);
 		
@@ -205,7 +203,7 @@ public class MainFrame extends JFrame implements Runnable {
 		panel.add(panel_3);
 		panel_3.setBorder(new LineBorder(new Color(0, 0, 0)));
 
-		JLabel labelBR = new JLabel("µµ¼­ ´ë¿© È®ÀÎ");
+		JLabel labelBR = new JLabel("ë„ì„œ ëŒ€ì—¬ í™•ì¸");
 		panel_3.add(labelBR);
 		labelBR.setBackground(new Color(240, 230, 140));
 		// ----------------------------------------------------------------------------------
@@ -221,7 +219,7 @@ public class MainFrame extends JFrame implements Runnable {
 		tfManagerId.setBounds(59, 114, 186, 21);
 		panelManager.add(tfManagerId);
 
-		JLabel lblNewLabel = new JLabel("°ü¸®ÀÚ ¹øÈ£");
+		JLabel lblNewLabel = new JLabel("ê´€ë¦¬ì ë²ˆí˜¸");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setBounds(59, 38, 186, 66);
 		panelManager.add(lblNewLabel);
@@ -231,35 +229,35 @@ public class MainFrame extends JFrame implements Runnable {
 		buttonMlogin.setBounds(166, 155, 97, 23);
 		panelManager.add(buttonMlogin);
 
-		buttonMcancel = new JButton("Ãë¼Ò");
+		buttonMcancel = new JButton("ì·¨ì†Œ");
 		buttonMcancel.setBounds(39, 155, 97, 23);
 		panelManager.add(buttonMcancel);
 		// ------------------------------------------------------------------------------
-		JButton buttonB = new JButton("µµ¼­´ëÃâ");
+		JButton buttonB = new JButton("ë„ì„œëŒ€ì¶œ");
 		buttonB.setForeground(SystemColor.textHighlightText);
 		buttonB.setBackground(SystemColor.activeCaption);
 		buttonB.setBounds(1336, 79, 148, 61);
 		panel.add(buttonB);
 
-		JButton buttonJM = new JButton("È¸¿øµî·Ï");
+		JButton buttonJM = new JButton("íšŒì›ë“±ë¡");
 		buttonJM.setForeground(SystemColor.textHighlightText);
 		buttonJM.setBackground(SystemColor.activeCaption);
 		buttonJM.setBounds(1336, 162, 148, 61);
 		panel.add(buttonJM);
 
-		JButton buttonEM = new JButton("È¸¿øÁ¤º¸¼öÁ¤");
+		JButton buttonEM = new JButton("íšŒì›ì •ë³´ìˆ˜ì •");
 		buttonEM.setForeground(SystemColor.textHighlightText);
 		buttonEM.setBackground(SystemColor.activeCaption);
 		buttonEM.setBounds(1336, 246, 148, 61);
 		panel.add(buttonEM);
 
-		JButton buttonF = new JButton("À½½ÄÁÖ¹®");
+		JButton buttonF = new JButton("ìŒì‹ì£¼ë¬¸");
 		buttonF.setForeground(SystemColor.textHighlightText);
 		buttonF.setBackground(SystemColor.activeCaption);
 		buttonF.setBounds(1336, 458, 148, 61);
 		panel.add(buttonF);
 
-		JButton buttonManager = new JButton("°ü¸®ÀÚ");
+		JButton buttonManager = new JButton("ê´€ë¦¬ì");
 		buttonManager.setForeground(SystemColor.textHighlightText);
 		buttonManager.setBackground(SystemColor.activeCaption);
 		buttonManager.addActionListener(new ActionListener() {
@@ -268,20 +266,20 @@ public class MainFrame extends JFrame implements Runnable {
 		});
 		buttonManager.setBounds(1336, 764, 148, 61);
 		panel.add(buttonManager);
-		// ---------------------------------------------------ÄŞº¸¹Ú½º
+		// ---------------------------------------------------ì½¤ë³´ë°•ìŠ¤
 		comboBoxVoucher = new JComboBox();
 		comboBoxVoucher.setModel(new DefaultComboBoxModel(title));
 		comboBoxVoucher.setBounds(1336, 529, 148, 48);
 		panel.add(comboBoxVoucher);
 
-		JButton buttonP = new JButton("°áÁ¦");
+		JButton buttonP = new JButton("ê²°ì œ");
 		buttonP.setForeground(SystemColor.text);
 		buttonP.setBackground(new Color(220, 20, 60));
 		buttonP.setBounds(12, 769, 300, 50);
 		panel.add(buttonP);
 		panelMember.setBackground(SystemColor.inactiveCaptionBorder);
 
-		// -------------------------------------------------------------------------------È¸¿ø·Î±×ÀÎºÎºĞ
+		// -------------------------------------------------------------------------------íšŒì›ë¡œê·¸ì¸ë¶€ë¶„
 
 		panelMember.setBorder(new LineBorder(new Color(0, 0, 0)));
 		panelMember.setBounds(12, 29, 300, 140);
@@ -293,7 +291,7 @@ public class MainFrame extends JFrame implements Runnable {
 		panelMember.add(panelLogIn, "LogIn");
 		panelLogIn.setLayout(null);
 
-		JLabel labelID = new JLabel("È¸¿ø ÀÌ¸§ : ");
+		JLabel labelID = new JLabel("íšŒì› ì´ë¦„ : ");
 		labelID.setBounds(58, 23, 89, 15);
 		panelLogIn.add(labelID);
 
@@ -303,13 +301,13 @@ public class MainFrame extends JFrame implements Runnable {
 		panelLogIn.add(tfMemberID);
 		tfMemberID.setColumns(15);
 
-		buttonGuest = new JButton("ºñÈ¸¿ø");
+		buttonGuest = new JButton("ë¹„íšŒì›");
 		buttonGuest.setForeground(SystemColor.text);
 		buttonGuest.setBackground(SystemColor.controlShadow);
 		buttonGuest.setBounds(25, 93, 108, 23);
 		panelLogIn.add(buttonGuest);
 
-		buttonLogIn = new JButton("È¸¿ø·Î±×ÀÎ");
+		buttonLogIn = new JButton("íšŒì›ë¡œê·¸ì¸");
 		buttonLogIn.setBackground(SystemColor.control);
 		buttonLogIn.setBounds(167, 93, 108, 23);
 		panelLogIn.add(buttonLogIn);
@@ -328,11 +326,11 @@ public class MainFrame extends JFrame implements Runnable {
 
 		panelLogInMember = new JPanel();
 		panelLogInMember.setBackground(SystemColor.inactiveCaptionBorder);
-		panelMember.add(panelLogInMember, "È¸¿ø·Î±×ÀÎ");
+		panelMember.add(panelLogInMember, "íšŒì›ë¡œê·¸ì¸");
 		panelLogInMember.setLayout(null);
 
 		labelLogInName = new JLabel("");
-		labelLogInName.setFont(new Font("±¼¸²", Font.PLAIN, 18));
+		labelLogInName.setFont(new Font("êµ´ë¦¼", Font.PLAIN, 18));
 		labelLogInName.setBounds(127, 31, 90, 21);
 		panelLogInMember.add(labelLogInName);
 
@@ -356,15 +354,15 @@ public class MainFrame extends JFrame implements Runnable {
 		panelLogInMember.add(panelMemberImage);
 		panelMemberImage.setLayout(null);
 
-		image = new JLabel("ÀÌ¹ÌÁö ¾øÀ½");
+		image = new JLabel("ì´ë¯¸ì§€ ì—†ìŒ");
 		image.setBounds(0, 0, 85, 79);
 		panelMemberImage.add(image);
 
-		JLabel labelCoupon1 = new JLabel("»ıÀÏÄíÆù");
+		JLabel labelCoupon1 = new JLabel("ìƒì¼ì¿ í°");
 		labelCoupon1.setBounds(127, 77, 57, 15);
 		panelLogInMember.add(labelCoupon1);
 
-		JLabel labelCoupon2 = new JLabel("Ãµ¿øÄíÆù");
+		JLabel labelCoupon2 = new JLabel("ì²œì›ì¿ í°");
 		labelCoupon2.setBounds(196, 77, 57, 15);
 		panelLogInMember.add(labelCoupon2);
 
@@ -380,7 +378,7 @@ public class MainFrame extends JFrame implements Runnable {
 
 		btnLogout.setBounds(206, 113, 87, 15);
 		panelLogInMember.add(btnLogout);
-		// ----------------------------------------------------°áÁ¦³»¿ª
+		// ----------------------------------------------------ê²°ì œë‚´ì—­
 		JPanel panelPH = new JPanel();
 		panel.add(panelPH);
 		panelPH.setLayout(null);
@@ -388,11 +386,11 @@ public class MainFrame extends JFrame implements Runnable {
 		panelPH.setBorder(new LineBorder(new Color(0, 0, 0)));
 		panelPH.setBounds(12, 179, 300, 580);
 
-		JLabel labelPM = new JLabel("°áÁ¦ ³»¿ª");
+		JLabel labelPM = new JLabel("ê²°ì œ ë‚´ì—­");
 		labelPM.setBounds(121, 0, 57, 25);
 		panelPH.add(labelPM);
 		
-		String[] columnPay = { "¹øÈ£", "»óÇ°Á¾·ù", "ÁÖ¹®»óÇ°", "°¹¼ö", "°¡°İ" };
+		String[] columnPay = { "ë²ˆí˜¸", "ìƒí’ˆì¢…ë¥˜", "ì£¼ë¬¸ìƒí’ˆ", "ê°¯ìˆ˜", "ê°€ê²©" };
 		String[][] rowData = {};
 		pay = new DefaultTableModel(rowData, columnPay);
 		tablePayment = new JTable(pay);
@@ -424,7 +422,7 @@ public class MainFrame extends JFrame implements Runnable {
 		panelPH.add(panelBookJtable);
 		panelBookJtable.setLayout(new BorderLayout(0, 0));
 
-		String[] columnBook = { "Ã¥ ÀÌ¸§", "¹İ³³³¯Â¥", "¿¬Ã¼±İ¾×", "¿¬Ã¼ÀÏ" };
+		String[] columnBook = { "ì±… ì´ë¦„", "ë°˜ë‚©ë‚ ì§œ", "ì—°ì²´ê¸ˆì•¡", "ì—°ì²´ì¼" };
 		String[][] rowData2 = {};
 		book = new DefaultTableModel(rowData2, columnBook);
 		tableBookRental = new JTable(book);
@@ -479,7 +477,7 @@ public class MainFrame extends JFrame implements Runnable {
 		tfManagerId.addActionListener(mc);
 		contentPane.add(panelDate);
 
-		icon = new ImageIcon("C:\\Users\\Administrator\\Pictures\\memberIcon\\¹è°æÈ­¸é.jpg");
+		icon = new ImageIcon("C:\\Users\\Administrator\\Pictures\\memberIcon\\ë°°ê²½í™”ë©´.jpg");
 		panelTable = new JPanel();
 //		{
 //			public void paintComponent(Graphics g) {
@@ -494,7 +492,7 @@ public class MainFrame extends JFrame implements Runnable {
 		panelTable.setBounds(324, 10, 1000, 800);
 		panel.add(panelTable);
 		panelTable.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 5));
-		// "<html>ÀÌ¸§<br>ÀÌ¿ë½Ã°£<br><br><br><br><br><br>±İ¾×</html>";<h1
+		// "<html>ì´ë¦„<br>ì´ìš©ì‹œê°„<br><br><br><br><br><br>ê¸ˆì•¡</html>";<h1
 		// style="text-align:center;">
 		int len = fp.length;
 		for (int i = 0; i < len; i++) {

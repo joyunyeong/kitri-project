@@ -17,9 +17,9 @@ public class MemDialog extends JDialog {
 	public JPanel mdfP = new JPanel();
 	String[] num = {"010", "02", "031"};
 	
-	public JButton addB = new JButton("Ãß°¡");
-	public JButton mdfB = new JButton("¼öÁ¤");
-	public JButton cancelB = new JButton("Ãë¼Ò");
+	public JButton addB = new JButton("ì¶”ê°€");
+	public JButton mdfB = new JButton("ìˆ˜ì •");
+	public JButton cancelB = new JButton("ì·¨ì†Œ");
 	public JTextField nameTF = new JTextField();
 	public JComboBox ph1C = new JComboBox(num);
 	public JTextField ph2TF = new JTextField();
@@ -27,9 +27,9 @@ public class MemDialog extends JDialog {
 	private final JLabel label_1 = new JLabel("-");
 	public JTextField birth1 = new JTextField();
 	public  JTextField birth2 = new JTextField();
-	private final JLabel label_3 = new JLabel("¿ù");
+	private final JLabel label_3 = new JLabel("ì›”");
 	public  JTextField birth3 = new JTextField();
-	private final JLabel label_4 = new JLabel("ÀÏ");
+	private final JLabel label_4 = new JLabel("ì¼");
 	public JLabel infoBirth = new JLabel();
 	public JLabel infoPhoneNum = new JLabel();
 
@@ -42,22 +42,22 @@ public class MemDialog extends JDialog {
 		contentPanel.setBackground(SystemColor.control);
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPanel.setLayout(null);
-		JLabel tl1 = new JLabel("ÀÌ¸§");
-		tl1.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN, 15));
+		JLabel tl1 = new JLabel("ì´ë¦„");
+		tl1.setFont(new Font("ë§‘ì€ ê³ ë”•", Font.PLAIN, 15));
 		tl1.setBounds(24, 23, 88, 33);
 		
-		JLabel tl2 = new JLabel("ÀüÈ­¹øÈ£");
-		tl2.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN, 15));
+		JLabel tl2 = new JLabel("ì „í™”ë²ˆí˜¸");
+		tl2.setFont(new Font("ë§‘ì€ ê³ ë”•", Font.PLAIN, 15));
 		tl2.setBounds(24, 84, 97, 17);
 		
-		JLabel tl3 = new JLabel("ÁÖ¼Ò");
-		tl3.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN, 15));
+		JLabel tl3 = new JLabel("ì£¼ì†Œ");
+		tl3.setFont(new Font("ë§‘ì€ ê³ ë”•", Font.PLAIN, 15));
 		tl3.setBounds(24, 173, 97, 15);
 		adrTF.setBounds(24, 198, 308, 30);
 		adrTF.setColumns(10);
 		
-		JLabel tl4 = new JLabel("»ı³â¿ùÀÏ");
-		tl4.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN, 15));
+		JLabel tl4 = new JLabel("ìƒë…„ì›”ì¼");
+		tl4.setFont(new Font("ë§‘ì€ ê³ ë”•", Font.PLAIN, 15));
 		tl4.setBounds(24, 260, 74, 21);
 				
 		contentPanel.add(tl1);
@@ -88,10 +88,10 @@ public class MemDialog extends JDialog {
 		contentPanel.add(ph1C);
 		
 		JLabel label = new JLabel("-");
-		label.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 20));
+		label.setFont(new Font("ë§‘ì€ ê³ ë”•", Font.BOLD, 20));
 		label.setBounds(106, 117, 15, 15);
 		contentPanel.add(label);
-		label_1.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 20));
+		label_1.setFont(new Font("ë§‘ì€ ê³ ë”•", Font.BOLD, 20));
 		label_1.setBounds(226, 117, 15, 15);
 		
 		contentPanel.add(label_1);
@@ -101,8 +101,8 @@ public class MemDialog extends JDialog {
 		birth1.setBounds(26, 292, 70, 30);
 		contentPanel.add(birth1);
 		
-		JLabel label_2 = new JLabel("³â");
-		label_2.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN, 15));
+		JLabel label_2 = new JLabel("ë…„");
+		label_2.setFont(new Font("ë§‘ì€ ê³ ë”•", Font.PLAIN, 15));
 		label_2.setBounds(100, 295, 23, 21);
 		contentPanel.add(label_2);
 		birth2.setHorizontalAlignment(SwingConstants.CENTER);
@@ -110,7 +110,7 @@ public class MemDialog extends JDialog {
 		birth2.setBounds(130, 292, 70, 30);
 		
 		contentPanel.add(birth2);
-		label_3.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN, 15));
+		label_3.setFont(new Font("ë§‘ì€ ê³ ë”•", Font.PLAIN, 15));
 		label_3.setBounds(206, 295, 23, 21);
 		
 		contentPanel.add(label_3);
@@ -119,17 +119,17 @@ public class MemDialog extends JDialog {
 		birth3.setBounds(235, 292, 70, 30);
 		
 		contentPanel.add(birth3);
-		label_4.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN, 15));
+		label_4.setFont(new Font("ë§‘ì€ ê³ ë”•", Font.PLAIN, 15));
 		label_4.setBounds(309, 295, 23, 21);
 		
 		contentPanel.add(label_4);
 		infoBirth.setForeground(new Color(255, 0, 0));
-		infoBirth.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN, 12));
+		infoBirth.setFont(new Font("ë§‘ì€ ê³ ë”•", Font.PLAIN, 12));
 		infoBirth.setBounds(91, 261, 241, 20);
 		
 		contentPanel.add(infoBirth);
 		infoPhoneNum.setForeground(Color.RED);
-		infoPhoneNum.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN, 12));
+		infoPhoneNum.setFont(new Font("ë§‘ì€ ê³ ë”•", Font.PLAIN, 12));
 		infoPhoneNum.setBounds(91, 84, 241, 20);
 		
 		contentPanel.add(infoPhoneNum);
